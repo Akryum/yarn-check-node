@@ -2,7 +2,7 @@
   "name": "yarn-check-node",
   "version": "1.0.0",
   "description": "[Yarn berry] Check node version from engines field in package.json",
-  "main": "check-node-version.js",
+  "main": "@yarnpkg/check-node-version.js",
   "scripts": {
     "build": "yarn node ./build.js"
   },

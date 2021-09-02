@@ -1,7 +1,7 @@
 import semver from 'semver'
 
 export default {
-  name: 'check-node-version',
+  name: '@yarnpkg/check-node-version',
 
   factory: require => {
     const fs = require('fs')

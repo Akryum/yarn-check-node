@@ -2301,7 +2301,7 @@ __export(exports, {
 });
 var import_semver = __toModule(require_semver2());
 var src_default = {
-  name: "check-node-version",
+  name: "@yarnpkg/check-node-version",
   factory: (require2) => {
     const fs = require2("fs");
     const data = fs.readFileSync("package.json");
