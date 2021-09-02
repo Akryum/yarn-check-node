@@ -1,6 +1,6 @@
 import semver from 'semver'
 
-export default {
+export = {
   name: 'check-node-version',
 
   factory: require => {
