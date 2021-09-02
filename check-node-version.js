@@ -2300,18 +2300,24 @@ __export(exports, {
   default: () => src_default
 });
 var import_semver = __toModule(require_semver2());
-var import_fs = __toModule(require("fs"));
 var src_default = {
   name: "check-node-version",
-  hooks: {
-    validateProject(project) {
-      const data = import_fs.default.readFileSync("package.json");
-      const { engines } = JSON.parse(data.toString());
-      const { node } = engines;
-      if (!import_semver.default.satisfies(process.version, node)) {
-        throw new Error(`The current node version ${process.version} does not satisfy the required version ${node}.`);
+  factory: (require2) => {
+    const fs = require2("fs");
+    const data = fs.readFileSync("package.json");
+    const { engines } = JSON.parse(data.toString());
+    const { node } = engines;
+    return {
+      default: {
+        hooks: {
+          validateProject(project) {
+            if (!import_semver.default.satisfies(process.version, node)) {
+              throw new Error(`The current node version ${process.version} does not satisfy the required version ${node}.`);
+            }
+          }
+        }
       }
-    }
+    };
   }
 };
 // Annotate the CommonJS export names for ESM import in node:
