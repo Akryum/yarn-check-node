@@ -2306,14 +2306,15 @@ var src_default = {
     const fs = require2("fs");
     const data = fs.readFileSync("package.json");
     const { engines } = JSON.parse(data.toString());
-    const { node } = engines;
     return {
       default: {
         name: "check-node-version",
         hooks: {
           validateProject(project) {
-            if (!import_semver.default.satisfies(process.version, node)) {
-              throw new Error(`The current node version ${process.version} does not satisfy the required version ${node}.`);
+            if (!engines.node)
+              return;
+            if (!import_semver.default.satisfies(process.version, engines.node)) {
+              throw new Error(`The current node version ${process.version} does not satisfy the required version ${engines.node}.`);
             }
           }
         }

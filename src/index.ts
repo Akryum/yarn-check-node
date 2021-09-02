@@ -7,15 +7,15 @@ export default {
     const fs = require('fs')
     const data = fs.readFileSync('package.json')
     const { engines } = JSON.parse(data.toString())
-    const { node } = engines
     return {
       default: {
         name: 'check-node-version',
 
         hooks: {
           validateProject(project) {
-            if (!semver.satisfies(process.version, node)) {
-              throw new Error(`The current node version ${process.version} does not satisfy the required version ${node}.`)
+            if (!engines.node) return
+            if (!semver.satisfies(process.version, engines.node)) {
+              throw new Error(`The current node version ${process.version} does not satisfy the required version ${engines.node}.`)
             }
           },
         },
