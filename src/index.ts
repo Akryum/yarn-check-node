@@ -1,7 +1,7 @@
 import semver from 'semver'
 
 export default {
-  name: '@yarnpkg/check-node-version',
+  name: 'check-node-version',
 
   factory: require => {
     const fs = require('fs')
@@ -10,6 +10,8 @@ export default {
     const { node } = engines
     return {
       default: {
+        name: 'check-node-version',
+
         hooks: {
           validateProject(project) {
             if (!semver.satisfies(process.version, node)) {

@@ -2301,7 +2301,7 @@ __export(exports, {
 });
 var import_semver = __toModule(require_semver2());
 var src_default = {
-  name: "@yarnpkg/check-node-version",
+  name: "check-node-version",
   factory: (require2) => {
     const fs = require2("fs");
     const data = fs.readFileSync("package.json");
@@ -2309,6 +2309,7 @@ var src_default = {
     const { node } = engines;
     return {
       default: {
+        name: "check-node-version",
         hooks: {
           validateProject(project) {
             if (!import_semver.default.satisfies(process.version, node)) {
