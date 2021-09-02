@@ -1,0 +1,28 @@
+{
+  "name": "yarn-check-node",
+  "version": "1.0.0",
+  "description": "[Yarn berry] Check node version from engines field in package.json",
+  "main": "check-node-version.js",
+  "scripts": {
+    "build": "yarn node ./build.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Akryum/yarn-check-node.git"
+  },
+  "author": "guillaume.b.chau@gmail.com",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Akryum/yarn-check-node/issues"
+  },
+  "homepage": "https://github.com/Akryum/yarn-check-node#readme",
+  "dependencies": {
+    "semver": "^7.3.5"
+  },
+  "devDependencies": {
+    "@types/node": "^16.7.10",
+    "@types/semver": "^7.3.8",
+    "@yarnpkg/esbuild-plugin-pnp": "^1.0.1-rc.3",
+    "esbuild": "^0.12.24"
+  }
+}
