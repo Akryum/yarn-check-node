@@ -13,7 +13,7 @@ export = {
 
         hooks: {
           validateProject(project) {
-            if (!engines.node) return
+            if (!engines?.node) return
             if (!semver.satisfies(process.version, engines.node)) {
               throw new Error(`The current node version ${process.version} does not satisfy the required version ${engines.node}.`)
             }
